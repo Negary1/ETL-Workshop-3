@@ -266,15 +266,6 @@ The validation confirmed that:
 This verification confirms that the serialized pipeline is recoverable and functional for subsequent inference tasks.
 ---
 
-
-Antes de entregar la sección 7, hay dos puntos que conviene aclarar porque afectan la exactitud del README:
-
-1.  **Los totales finales (314 raw, 312 predicciones, 1 y 1 por estado)** los dejo como resultados esperados, no verificados, tal como indicas. Si ejecutaste la consulta SQL agregada, compártela o su salida y lo cambio a verificado.
-2.  **La afirmación "consumer lag = 0 en las tres particiones"** y las salidas de las pruebas directas las tomo de tu descripción. No tengo el código ni la salida de esas ejecuciones, así que las presento como resultados reportados por el proyecto.
-
-También elegí no incluir ningún código ni nombres de archivo más allá de los que proporcionaste, y no describo el sistema como de producción ni con garantías de exactly-once.
-
-
 ## 7. Kafka Pipeline and Event Contract
 
 The streaming stage of the project simulates the continuous arrival of World Happiness records. A producer publishes historical records as events to Apache Kafka, and a consumer receives them, persists the original message, validates its structure and values, generates a prediction with the previously trained model, and stores the results in PostgreSQL. The pipeline is designed to demonstrate streaming ingestion and real-time inference over bounded historical data; it is not a production-grade distributed system.
